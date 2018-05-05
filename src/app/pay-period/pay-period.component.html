@@ -1,0 +1,8 @@
+<input #name>
+<button (click)="add(name.value)">Add A Pay Period</button>
+<ul>
+  <li class="text" *ngFor="let period of periods | async">
+    <a routerLink="/details/{{period.id}}"><h1>{{period.name}}</h1></a>
+    <button (click)="delete(period.id)">x</button>
+  </li>
+</ul>

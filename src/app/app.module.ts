@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+ 
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { PayPeriodComponent } from './pay-period/pay-period.component';
+import { PayPeriodService } from './pay-period.service';
+import { FireCrudService } from './fire-crud.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { PayPeriodDetailComponent } from './pay-period-detail/pay-period-detail.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PayPeriodComponent,
+    PayPeriodDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PayPeriodService,
+    FireCrudService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
