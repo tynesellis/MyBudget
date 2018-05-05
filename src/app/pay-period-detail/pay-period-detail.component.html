@@ -1,0 +1,6 @@
+<ul>
+  <li class="text" *ngFor="let cat of categories | async">
+    <h1>{{cat.category}}</h1>
+    <h2>Budget: {{cat.budget}}</h2>
+  </li>
+</ul>
