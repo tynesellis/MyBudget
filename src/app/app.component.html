@@ -1,12 +1,10 @@
 <h1>{{title}}</h1>
-<input type="text" #e placeholder="email">
-<input type="password" #p placeholder="password">
-<button (click)="reg(e.value, p.value)">Register</button>
-<div *ngIf="user">
-<h1>Deez Nuts</h1>
-</div>
+
+<app-auth *ngIf="!(afAuth.user | async)"></app-auth>
 <app-pay-period></app-pay-period>
 <router-outlet></router-outlet>
+
+<button *ngIf="afAuth.user | async" (click)="logout()">Logout {{afAuth.id}}</button>
 
 
 

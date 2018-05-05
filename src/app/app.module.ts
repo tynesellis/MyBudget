@@ -14,13 +14,15 @@ import { AppRoutingModule } from './/app-routing.module';
 import { PayPeriodDetailComponent } from './pay-period-detail/pay-period-detail.component';
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PayPeriodComponent,
-    PayPeriodDetailComponent
+    PayPeriodDetailComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
