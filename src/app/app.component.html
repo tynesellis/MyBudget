@@ -1,6 +1,10 @@
-<h1>My Budget</h1>
+<h1>{{title}}</h1>
+
+<app-auth *ngIf="!(afAuth.user | async)"></app-auth>
 <app-pay-period></app-pay-period>
 <router-outlet></router-outlet>
+
+<button *ngIf="afAuth.user | async" (click)="logout()">Logout {{afAuth.id}}</button>
 
 
 
