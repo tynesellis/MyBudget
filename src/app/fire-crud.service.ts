@@ -11,11 +11,15 @@ export class FireCrudService {
   constructor(private db : AngularFirestore) { 
     }
 
-    addPeriod(obj : any, dbCollection : string) {
+    addUserSection(uid : string) {
+      this.db.collection('Users').doc(uid).set({id: uid});
+    }
+
+    addPeriod(obj : any, user : string) {
       const id = this.db.createId();
       obj.id = id;
       obj.date = new Date();
-      this.db.collection(dbCollection).doc(id).set(obj);
+      this.db.collection('Users').doc(user).collection('PayPeriods').doc(id).set(obj);
     }
 
     addPurchase(obj : Purchase, period : string) {
